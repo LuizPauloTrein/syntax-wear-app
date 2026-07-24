@@ -42,12 +42,20 @@
   src: url("../../src/assets/fonts/ubuntu-regular-400.woff2");
 }
 
-body{
+body {
   font-family: var(--font-display);
 }
 
-@utility container{
+@utility container {
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 10px;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  scrollbar-width: none;
 }
