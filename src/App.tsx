@@ -1,6 +1,7 @@
 import { Categories } from "./components/Categories/Categories"
-import { Header } from "./components/Header"
-import { Hero } from "./components/Hero"
+import { Gallery } from "./components/Gallery/Gallery"
+import { Header } from "./components/Header/Header"
+import { Hero } from "./components/Hero/Hero"
 
 function App() {
 
@@ -10,6 +11,7 @@ function App() {
       <main className="py-10">
         <Hero></Hero>
         <Categories></Categories>
+        <Gallery></Gallery>
       </main>
     </>
   )
