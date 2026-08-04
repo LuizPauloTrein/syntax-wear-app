@@ -2,14 +2,14 @@ import { Link } from "@tanstack/react-router"
 import { MdAddShoppingCart } from "react-icons/md"
 import type { Product } from "../../interfaces/product"
 
-interface ProductCardPorps{
+interface ProductCardPorps {
   product: Product
 }
 
-export const ProductCard = ({product}: ProductCardPorps) => {
+export const ProductCard = ({ product }: ProductCardPorps) => {
   return (
     <div className="rounded-2xl bg-white shadow-md">
-      <Link to="/products">
+      <Link to="/products/$productId" params={{ productId: String(product.id) }}>
         <img className="w-full max-h-100 object-cover rounded-md mb-2" src={product.image} alt={product.name} />
       </Link>
 
