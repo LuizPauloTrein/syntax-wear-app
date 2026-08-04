@@ -45,6 +45,7 @@
 body {
   font-family: var(--font-display);
   color: #ffffff;
+  background-color: var(--color-surface);
 }
 
 @utility container {
