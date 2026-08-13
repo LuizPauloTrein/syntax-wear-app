@@ -1,7 +1,7 @@
 import IconCart from "@/assets/images/icon-cart.png"
 import { useContext, useState } from "react"
-import { formatCurrency } from '../../utils/formatCurrency'
-import { CartContext } from '../../contexts/CartContext'
+import { formatCurrency } from "../../utils/formatCurrency"
+import { CartContext } from "../../contexts/CartContext"
 
 export const ShopppingCart = () => {
 
@@ -24,26 +24,26 @@ export const ShopppingCart = () => {
             <button className="text-xl cursor-pointer" onClick={() => setCartIsOpen(!cartIsOpen)}>X</button>
           </header>
 
-          <ul className='p-4 overflow-y-auto scrollbar-hide h-[calc(100%-140px)] flex flex-col gap-3'>
+          <ul className="p-4 overflow-y-auto scrollbar-hide h-[calc(100%-140px)] flex flex-col gap-3">
             {cart.map(product => (
-              <li key={product.id} className='flex flex-col gap-1 px-6'>
-                <button className='self-end text-xs cursor-pointer' onClick={() => remove(product.id)}>X</button>
+              <li key={product.id} className="flex flex-col gap-1 px-6">
+                <button className="self-end text-xs cursor-pointer" onClick={() => remove(product.id)}>X</button>
 
-                <div className='flex gap-4'>
-                  <img src={product.image} alt={product.name} className='w-16 h-16' />
+                <div className="flex gap-4">
+                  <img src={product.image} alt={product.name} className="w-16 h-16" />
 
-                  <div className='flex flex-col items-start'>
-                    <p className='mb-1 text-sm'>{product.name}</p>
-                    <p className='mb-1 text-sm'>Quantidade: {product.quantity}</p>
+                  <div className="flex flex-col items-start">
+                    <p className="mb-1 text-sm">{product.name}</p>
+                    <p className="mb-1 text-sm">Quantidade: {product.quantity}</p>
 
-                    <p className='mb-3.5'>
-                      <span className='font-bold mr-1.5'>{formatCurrency(product.price)}</span> à vista
+                    <p className="mb-3.5">
+                      <span className="font-bold mr-1.5">{formatCurrency(product.price)}</span> à vista
                     </p>
 
-                    <div className='border flex gap-6 py-1 px-3'>
-                      <button className='cursor-pointer' onClick={() => decrement(product)}>-</button>
+                    <div className="border flex gap-6 py-1 px-3">
+                      <button className="cursor-pointer" onClick={() => decrement(product)}>-</button>
                       <p>{product.quantity}</p>
-                      <button className='cursor-pointer' onClick={() => increment(product)}>+</button>
+                      <button className="cursor-pointer" onClick={() => increment(product)}>+</button>
                     </div>
                   </div>
 
@@ -52,8 +52,8 @@ export const ShopppingCart = () => {
             ))}
           </ul>
 
-          <footer className='absolute bottom-0 bg-white w-full h-25 p-4'>
-            <button className='w-full h-full bg-black text-white rounded-xs cursor-pointer hover:bg-gray-800'>Fechar pedido</button>
+          <footer className="absolute bottom-0 bg-white w-full h-25 p-4">
+            <button className="w-full h-full bg-black text-white rounded-xs cursor-pointer hover:bg-gray-800">Fechar pedido</button>
           </footer>
         </div>
       </div>

@@ -5,7 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 const onlyDigits = (value: string) => value.replace(/\D/g, "")
 const validateCEP = (value: string): boolean => /^\d{8}$/.test(value)
 
-export const cepFormSchema = z.boject({
+export const cepFormSchema = z.object({
   cep: z
     .string()
     .nonempty("CEP é obrigatório")

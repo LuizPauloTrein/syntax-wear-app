@@ -37,7 +37,7 @@ export const CEPForm = () => {
         return
       }
 
-      setAddress({ ...data, shipping: shippingCost })
+      setAddress({ ...data, shippingCost: shippingCost })
     } catch {
       setAddressError("Ocorreu um erro ao buscar o CEP. Tente novamente mais tarde")
     }
@@ -47,7 +47,7 @@ export const CEPForm = () => {
     <>
       <form className="flex gap-3" onSubmit={handleSubmit(onSubmit)} noValidate>
         <div className="flex flex-col flex-1">
-          <input className={`border border-[#c0c0c0] rounded-md p-3" ${errors.cep ? "border-red-500" : ""}`} {...register("CEP")} type="text" placeholder="Insira sue CEP" />
+          <input className={`border border-[#c0c0c0] rounded-md p-3 ${errors.cep ? "border-red-500" : ""}`} {...register("cep")} type="text" placeholder="Insira sue CEP" />
           {errors.cep && (
             <span className="text-red-600 text-sm mt-1">{String(errors.cep.message)}</span>
           )}
@@ -55,7 +55,7 @@ export const CEPForm = () => {
         <button className="bg-black text-white py-3 px-6 rounded-md cursor-pointer hover:bg-gray-800 disabled:opacity-60" type="submit" disabled={isSubmitting}>{isSubmitting ? "Calculando..." : "Calcular"}</button>
       </form>
 
-      {address && (
+      {addressError && (
         <div className="mt-4">
           <p className="text-sm text-red-600">{addressError}</p>
         </div>

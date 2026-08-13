@@ -1,9 +1,9 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute } from "@tanstack/react-router"
 import OurStoresBanner from "@/assets/images/banner-our-stores.png"
 import OurStoresImg1 from "@/assets/images/loja-1.png"
 import OurStoresImg2 from "@/assets/images/loja-2.png"
 
-export const Route = createFileRoute('/_app/our-stores/')({
+export const Route = createFileRoute("/_app/our-stores/")({
   component: RouteComponent,
 })
 

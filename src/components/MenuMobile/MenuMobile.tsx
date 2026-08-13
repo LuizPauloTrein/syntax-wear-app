@@ -30,7 +30,7 @@ export const MenuMobile = ({ navLinks }: MenuMobileProps) => {
               <IoMdClose className="cursor-pointer text-2xl" onClick={() => setMenuIsOpen(!menuIsOpen)}></IoMdClose>
             </nav>
           </header>
-          <ul className='p-4 overflow-y-auto scrollbar-hide h-[calc(100%-140px)] flex flex-col gap-3'>
+          <ul className="p-4 overflow-y-auto scrollbar-hide h-[calc(100%-140px)] flex flex-col gap-3">
             {navLinks.map((link) => (
               <Link to={link.href} key={link.name} onClick={() => setMenuIsOpen(!menuIsOpen)}>{link.name}</Link>
             ))}
