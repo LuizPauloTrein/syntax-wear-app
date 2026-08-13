@@ -10,7 +10,6 @@ export const Route = createFileRoute("/_app/products/$productId")({
 })
 
 function RouteComponent() {
-
   const { add } = useContext(CartContext)
 
   const { productId } = Route.useParams()
@@ -30,8 +29,8 @@ function RouteComponent() {
       <span className="font-semibold">{filteredProduct?.name}</span>
     </nav>
 
-    <div className="flex justify-center gap-10">
-      <img src={filteredProduct?.image} alt={filteredProduct?.name} className="w-125 bg-white rounded-2xl" />
+    <div className="flex flex-col md:flex-row justify-center gap-10">
+      <img src={filteredProduct?.image} alt={filteredProduct?.name} className="w-full md:w-125 bg-white rounded-2xl" />
 
       <div className="text-black">
         <h1 className="text-4xl font-bold mb-1">{filteredProduct?.name}</h1>
