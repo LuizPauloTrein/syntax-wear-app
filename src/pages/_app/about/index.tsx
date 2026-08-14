@@ -4,6 +4,11 @@ import { Link } from "@tanstack/react-router"
 
 export const Route = createFileRoute("/_app/about/")({
   component: RouteComponent,
+  head: () => ({
+    meta: [
+      {title: "Sobre - SyntaxWear"}
+    ]
+  })
 })
 
 function RouteComponent() {
