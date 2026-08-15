@@ -15,7 +15,7 @@ export const MenuItems = () => {
               <p className="font-normal text-surface-alt text-xl">{title}</p>
             </li>
             {items.map((item) => (
-              <li key={item}><a className="font-medium hover:text-[#cccccc] transition-colors text-xl" href="#">{item}</a></li>
+              <li key={item}><a className="font-medium hover:text-text-tertiary transition-colors text-xl" href="#">{item}</a></li>
             ))}
           </ul>
         </nav>
