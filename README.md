@@ -112,6 +112,6 @@ vite.config.ts
 
 A estrutura pode variar de acordo com a organização dos componentes e funcionalidades implementadas no projeto.
 
-## 👨‍💻 Autor
+## Autor
 
 Desenvolvido por **Luiz Trein**.
