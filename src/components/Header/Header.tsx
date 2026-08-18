@@ -47,7 +47,7 @@ export const Header = () => {
                 <MenuMobile navLinks={navLinks}></MenuMobile>
               </li>
               <li className="hidden lg:block">
-                <Link to="/sign-up"><img src={IconUser} alt="Icone de login" /></Link>
+                <Link to="/sign-in"><img src={IconUser} alt="Icone de login" /></Link>
               </li>
               <li>
                 <CartButton onClick={() => setCartIsOpen(true)}></CartButton>
