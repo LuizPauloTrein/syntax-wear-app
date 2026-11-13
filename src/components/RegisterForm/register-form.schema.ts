@@ -1,71 +1,40 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-
-const cpfRegex = /^\d{3}\.\d{3}\.\d{3}-\d{2}$|^\d{11}$/;
+import { isValidCPF } from "../../utils/cpf-validator";
 
 export const registerUserFormSchema = z
   .object({
-    firstName: z
-      .string()
-      .trim()
-      .min(1, "O primeiro nome é obrigatório"),
+    firstName: z.string().nonempty("Primeiro nome é obrigatório"),
+    lastName: z.string().nonempty("Último nome é obrigatório"),
 
-    lastName: z
-      .string()
-      .trim()
-      .min(1, "O último nome é obrigatório"),
+    email: z.email("E-mail inválido"),
 
-    email: z
-      .string()
-      .trim()
-      .min(1, "O e-mail é obrigatório")
-      .refine(
-        (value) => z.email().safeParse(value).success,
-        { message: "E-mail inválido" }
-      ),
+    password: z.string().min(8, "A senha deve ter pelo menos 8 caracteres"),
 
-    password: z
-      .string()
-      .min(1, "A senha é obrigatória")
-      .min(8, "A senha deve ter no mínimo 8 caracteres"),
-
-    confirmPassword: z
-      .string()
-      .min(1, "Confirme sua senha"),
+    confirmPassword: z.string().nonempty("Confirmação de senha é obrigatória"),
 
     cpf: z
       .string()
-      .trim()
-      .min(1, "O CPF é obrigatório")
-      .regex(cpfRegex, "CPF inválido"),
+      .min(11, "CPF é obrigatório")
+      .refine(isValidCPF, "CPF inválido"),
 
     birthDate: z
       .string()
-      .trim()
-      .min(1, "A data de nascimento é obrigatória")
-      .refine((date) => {
-        const parsedDate = new Date(date);
+      .refine(
+        (date) => !isNaN(Date.parse(date)),
+        "Data de nascimento inválida"
+      ),
 
-        return (
-          !isNaN(parsedDate.getTime()) &&
-          parsedDate <= new Date()
-        );
-      }, {
-        message: "Data de nascimento inválida",
-      }),
-
-    cellphone: z
-      .string()
-      .trim()
-      .min(1, "Telefone é obrigatório"),
+      phone: z.string().nonempty("Telefone é obrigatório")
   })
   .refine((data) => data.password === data.confirmPassword, {
-    path: ["confirmPassword"],
     message: "As senhas não coincidem",
+    path: ["confirmPassword"],
   });
 
-type RegisterFormData = z.infer<typeof registerUserFormSchema>;
+
+export type RegisterFormData = z.infer<typeof registerUserFormSchema>;
 
 export const useRegisterForm = () => {
   const {
@@ -78,11 +47,12 @@ export const useRegisterForm = () => {
     resolver: zodResolver(registerUserFormSchema),
     mode: "onBlur",
     defaultValues: {
-      email: "",
-      password: ""
+        email: "",
+        password: "",
     },
-    criteriaMode: "all"
-  })
+    criteriaMode: "all",
+
+  });
 
   return {
     handleSubmit,
@@ -90,6 +60,6 @@ export const useRegisterForm = () => {
     errors,
     isSubmitting,
     setError,
-    reset,
+    reset
   }
 }
