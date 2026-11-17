@@ -6,6 +6,8 @@ import {
   type User,
 } from "./AuthContext";
 
+const API_URL = import.meta.env.VITE_API_URL ?? "http://localhost:3000";
+
 interface AuthProviderProps {
   children: React.ReactNode;
 }
@@ -17,7 +19,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   useEffect(() => {
     const fetchUserProfile = async () => {
       try {
-        const response = await fetch("http://localhost:3000/auth/profile", {
+        const response = await fetch(`${API_URL}/auth/profile`, {
           method: "GET",
           credentials: "include", // faz com que os cookies sejam enviados junto com a requisição
         });
@@ -27,10 +29,8 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         }
 
         const data = await response.json();
-        setUser(data.user);
+        setUser(data.user ?? data);
         setIsAuthenticated(true);
-
-        console.log(data.user);
       } catch (error) {
         console.error("Erro ao buscar perfil do usuário:", error);
         setUser(null);
@@ -42,7 +42,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   }, []);
 
   async function signIn(credentials: Credentials): Promise<void> {
-    const response = await fetch("http://localhost:3000/auth/login", {
+    const response = await fetch(`${API_URL}/auth/login`, {
       method: "POST",
       credentials: "include", // faz com que os cookies sejam enviados junto com a requisição
       headers: {
@@ -62,7 +62,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   }
 
   async function signUp(data: RegisterInput): Promise<void> {
-    const response = await fetch("http://localhost:3000/auth/register", {
+    const response = await fetch(`${API_URL}/auth/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -82,7 +82,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   async function signOut(): Promise<void> {
     try {
-      await fetch("http://localhost:3000/auth/signout", {
+      await fetch(`${API_URL}/auth/signout`, {
         method: "POST",
         credentials: "include", // faz com que os cookies sejam enviados junto com a requisição
       });
@@ -95,7 +95,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   }
 
   async function signInWithGoogle(credential: string): Promise<void> {
-    const response = await fetch("http://localhost:3000/auth/google", {
+    const response = await fetch(`${API_URL}/auth/google`, {
       method: "POST",
       credentials: "include", // faz com que os cookies sejam enviados junto com a requisição
       headers: {
@@ -105,8 +105,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     });
 
     const result = await response.json();
-
-    console.log("result:", result);
 
     if (!response.ok || !result.user) {
       throw new Error(result.message || "Erro ao fazer login com Google");

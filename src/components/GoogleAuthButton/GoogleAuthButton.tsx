@@ -14,7 +14,6 @@ export const GoogleAuthButton = () => {
     credentialResponse: CredentialResponse
   ): Promise<void> => {
     const credential = credentialResponse.credential;
-    console.log("Google Token:", credential);
 
     if (!credential) {
       setGoogleError("Credencial do Google não encontrada. Tente novamente.");

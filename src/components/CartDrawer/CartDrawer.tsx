@@ -8,7 +8,7 @@ interface CartDrawerProps {
 }
 
 export const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
-  const { cart, remove, increment, decrement } = useContext(CartContext);
+  const { cart, removeFromCart, incrementInCart, decrementInCart } = useContext(CartContext);
 
   
 
@@ -24,7 +24,7 @@ export const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
           <ul className="p-4 overflow-y-auto scrollbar-hide h-[calc(100%-140px)] flex flex-col gap-3">
             {cart.map((product) => (
               <li key={product.id} className="flex flex-col gap-1 pr-2">
-                <button className="self-end text-xs cursor-pointer" onClick={() => remove(product.id)}>X</button>
+                <button className="self-end text-xs cursor-pointer" onClick={() => removeFromCart(product.id)}>X</button>
 
                 <div className="flex gap-4">
                   <img src={product.images[0]} alt={product.name} className="w-24 h-24 md:w-32 md:h-32" />
@@ -39,9 +39,9 @@ export const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
                       </span>{" "}à vista</p>
 
                     <div className="border flex gap-6 py-1 px-3">
-                      <button className="cursor-pointer" onClick={() => decrement(product)}>-</button>
+                      <button className="cursor-pointer" onClick={() => decrementInCart(product)}>-</button>
                       <p>{product.quantity}</p>
-                      <button className="cursor-pointer" onClick={() => increment(product)}>+</button>
+                      <button className="cursor-pointer" onClick={() => incrementInCart(product)}>+</button>
                     </div>
                   </div>
                 </div>

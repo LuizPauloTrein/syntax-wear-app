@@ -1,6 +1,6 @@
 import Logo from "@/assets/images/logo.png";
 import IconUser from "@/assets/images/icon-user.png";
-import { Link, useNavigate } from "@tanstack/react-router";
+import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { useAuth } from "../../contexts/AuthContext/AuthContext";
 import { PiSignOutLight } from "react-icons/pi";

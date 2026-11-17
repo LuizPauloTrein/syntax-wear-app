@@ -11,7 +11,7 @@ interface ProductCardPorps {
 
 export const ProductCard = ({ product }: ProductCardPorps) => {
 
-  const { add } = useContext(CartContext)
+  const { addToCart } = useContext(CartContext)
 
   return (
     <div className="bg-white rounded-2xl shadow-md">
@@ -26,7 +26,7 @@ export const ProductCard = ({ product }: ProductCardPorps) => {
         <div className="flex justify-between mt-2.5">
           <p className="font-bold">{formatCurrency(product.price)}</p>
 
-          <button className="cursor-pointer" onClick={() => add(product)}>
+          <button className="cursor-pointer" onClick={() => addToCart(product)}>
             <MdAddShoppingCart className="w-7 h-7"></MdAddShoppingCart>
           </button>
         </div>

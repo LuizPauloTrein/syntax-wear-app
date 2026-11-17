@@ -1,6 +1,6 @@
-import IconMenu from "@/assets/images/icone-menu.png";
-import { Link, useNavigate } from "@tanstack/react-router";
-import { use, useState } from "react";
+import IconMenu from "@/assets/images/icon-menu.png";
+import { Link } from "@tanstack/react-router";
+import { useState } from "react";
 import { FaRegUserCircle } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
 import { useAuth } from "../../contexts/AuthContext/AuthContext";
