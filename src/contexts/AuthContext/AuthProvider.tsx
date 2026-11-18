@@ -6,7 +6,7 @@ import {
   type User,
 } from "./AuthContext";
 
-const API_URL = import.meta.env.VITE_API_URL ?? "http://localhost:3000";
+const API_URL = import.meta.env.VITE_API_KEY ?? "http://localhost:3000";
 
 interface AuthProviderProps {
   children: React.ReactNode;

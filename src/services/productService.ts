@@ -1,7 +1,7 @@
 import { notFound } from "@tanstack/react-router";
 import type { Product } from "../interfaces/product";
 
-const API_BASE_URL = "http://localhost:3000";
+const API_BASE_URL = import.meta.env.VITE_API_KEY;
 const DEFAULT_LIMIT = 3;
 
 interface GetProductParams { 
@@ -53,7 +53,7 @@ export async function getProductByCategoryId(categoryId: number, paginationParam
 }
 
 export async function getProductDetailById(id: string): Promise<Product> {
-  const response = await fetch(`http://localhost:3000/products/${id}`);
+  const response = await fetch(`${API_BASE_URL}/products/${id}`);
 
   if (!response.ok) {
     throw notFound();
