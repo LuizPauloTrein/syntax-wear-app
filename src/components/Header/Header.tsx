@@ -71,7 +71,7 @@ export const Header = () => {
                     <PiSignOutLight className="w-6 h-6"></PiSignOutLight>
                   </button>
                 ) : (
-                  <Link to="/sign-up">
+                  <Link to="/sign-in">
                     <img src={IconUser} alt="Ícone de login" />
                   </Link>
                 )}
