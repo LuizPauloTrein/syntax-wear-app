@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router"
+import { createFileRoute, Link } from "@tanstack/react-router"
 import { RegisterForm } from "../../components/RegisterForm/RegisterForm"
 import { Logo } from "../../components/Logo/Logo"
 import { Separator } from "../../components/Separator/Separator"
@@ -27,7 +27,7 @@ function RouteComponent() {
         </button>
 
         <p className="text-sm text-gray-600 mt-6 text-center">Já tem uma conta? {" "}
-          <a href="/sign-in" className="text-accent hover:underline">Entrar</a>
+          <Link to="/sign-in" className="text-accent hover:underline">Entrar</Link>
         </p>
       </div>
     </section>
