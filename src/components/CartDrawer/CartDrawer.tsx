@@ -10,7 +10,7 @@ interface CartDrawerProps {
 export const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
   const { cart, removeFromCart, incrementInCart, decrementInCart } = useContext(CartContext);
 
-  
+
 
   return (
     <>
@@ -27,7 +27,7 @@ export const CartDrawer = ({ isOpen, onClose }: CartDrawerProps) => {
                 <button className="self-end text-xs cursor-pointer" onClick={() => removeFromCart(product.id)}>X</button>
 
                 <div className="flex gap-4">
-                  <img src={product.images[0]} alt={product.name} className="w-24 h-24 md:w-32 md:h-32" />
+                  <img src={product.images?.[0] ?? "/placeholder.png"} alt={product.name} className="w-24 h-24 md:w-32 md:h-32" />
 
                   <div className="flex flex-col items-start">
                     <p className="mb-1 text-sm">{product.name}</p>
