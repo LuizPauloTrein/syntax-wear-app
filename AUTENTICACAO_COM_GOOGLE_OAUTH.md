@@ -19,7 +19,7 @@ Nesse tutorial, vamos desenvolver a funcionalidade de autenticação com o **Goo
 5. Defina a opção de acesso como "Público".
 6. Crie as credenciais do tipo **ID do cliente OAuth** para um "Aplicativo da Web".
 7. Defina o nome do projeto, como `Syntax Wear`.
-8. Adicione as URLs de origem autorizadas (`http://localhost:5173/` para desenvolvimento) e os URIs de redirecionamento autorizados.
+8. Adicione as URLs de origem autorizadas (`https://ec-syntaxwear-app.vercel.app/` para desenvolvimento) e os URIs de redirecionamento autorizados.
 9. Copie o **ID do cliente** gerado para usar no código mais tarde.
 
 ---

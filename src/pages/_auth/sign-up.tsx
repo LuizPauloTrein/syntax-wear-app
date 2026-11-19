@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router"
 import { RegisterForm } from "../../components/RegisterForm/RegisterForm"
 import { Logo } from "../../components/Logo/Logo"
 import { Separator } from "../../components/Separator/Separator"
-import GoogleIcon from "@/assets/images/google-icon.png"
+import { GoogleAuthButton } from "../../components/GoogleAuthButton/GoogleAuthButton"
 
 export const Route = createFileRoute("/_auth/sign-up")({
   component: RouteComponent,
@@ -21,10 +21,9 @@ function RouteComponent() {
         <RegisterForm></RegisterForm>
         <Separator></Separator>
 
-        <button className=" cursor-pointer w-full flex items-center justify-center gap-2 border border-border rounded-md py-3 hover:bg-gray-50 transition">
-          <img className="w-5 h-5" src={GoogleIcon} alt="Icone do google" />
-          <span className="text-sm font-medium text-black">Continuar com o Google</span>
-        </button>
+        <div className="flex flex-col items-center">
+          <GoogleAuthButton />
+        </div>
 
         <p className="text-sm text-gray-600 mt-6 text-center">Já tem uma conta? {" "}
           <Link to="/sign-in" className="text-accent hover:underline">Entrar</Link>

@@ -20,9 +20,11 @@ function RouteComponent() {
 
           <h2 className="text-black font-bold text-[21px] mb-2">Entrar</h2>
 
-          <p className="mb-3.5">Escoha como você gostaria de fazer login</p>
+          <p className="mb-3.5">Escolha como você gostaria de fazer login</p>
 
-          <GoogleAuthButton />
+          <div className="flex flex-col items-center">
+            <GoogleAuthButton />
+          </div>
 
           <Separator />
 
